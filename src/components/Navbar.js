@@ -9,10 +9,7 @@ const Navbar = () => {
         <ul className="flex flex-col lg:flex-row list-none">
         <li>
             <NavLink
-            exact
             to="/"
-            className="mr-3 py-2 flex items-center text-xs uppercase font-bold"
-            activeStyle={{ color: "#FBBF24" }}
             >
             Home
             </NavLink>
@@ -20,19 +17,15 @@ const Navbar = () => {
         <li>
             <NavLink
             to="/launches"
-            className="mr-3 py-2 flex items-center text-xs uppercase font-bold"
-            activeStyle={{ color: "#FBBF24" }}
             >
             Launches
             </NavLink>
         </li>
         <li>
             <NavLink
-            to="/rockets"
-            className="mr-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black dark:text-white hover:opacity-75"
-            activeStyle={{ color: "#FBBF24" }}
+            to="/capsules"
             >
-            Rockets
+            Capsules
             </NavLink>
         </li>
         </ul>

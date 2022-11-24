@@ -12,6 +12,14 @@ const fetchRocket = (rocketId) => {
   return fetch(`${baseAPI}/rockets/${rocketId}`).then((res) => res.json());
 };
 
+const fetchCapsules = () => {
+    return fetch(`${baseAPI}/capsules`).then((res) => res.json());
+  };
+  
+const fetchCapsule = (capsuleId) => {
+return fetch(`${baseAPI}/capsules/${capsuleId}`).then((res) => res.json());
+};
+
 const fetchLaunches = ({
   launchYear = "",
   rocketName = "",
@@ -28,4 +36,4 @@ const fetchLaunch = (flightNumber) => {
   return fetch(`${baseAPI}/launches/${flightNumber}`).then((res) => res.json());
 };
 
-export { fetchInfos, fetchRockets, fetchRocket, fetchLaunches, fetchLaunch };
+export { fetchInfos, fetchRockets, fetchRocket, fetchCapsules, fetchCapsule, fetchLaunches, fetchLaunch };

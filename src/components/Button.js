@@ -1,9 +1,9 @@
 import React from "react";
 import "../assets/styles/Button.css";
 
-const Button = () => {
+function Button() {
   return (
-    <button class="btn btn-primary">
+    <button className="btn btn-primary">
       Test
     </button>
   );
