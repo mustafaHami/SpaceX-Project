@@ -1,11 +1,22 @@
 import React, { useEffect, useState } from "react";
-import CapsuleCard from "../components/CapsuleCard";
+import { fetchCapsules } from "../service/service";
 
 const Capsules = () => {
+  const [capsulesData, setCapsulesData] = useState([]);
+  // when page load for the first time.
+  useEffect(() => {
+    const fetchCapsulesData = async () => {
+      await fetchCapsules({ limit: 10, offset: 0 }).then((res) => {
+        setCapsulesData(res);
+      });
+    };
+    fetchCapsulesData();
+  }, []);
+  
+
   return (
     <div>
         <p>Caps SCREEN</p>
-        <CapsuleCard></CapsuleCard>
     </div>
   );
 };
