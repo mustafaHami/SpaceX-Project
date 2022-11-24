@@ -1,16 +1,22 @@
 import Button from "./components/Button";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./views/Home";
+import Launches from "./views/Launches";
+import Rockets from "./views/Rockets";
+import Navbar from "./components/Navbar";
 
-const App = () => {
+function App() {
     return (
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-                <Button></Button>
-            </div>
-        </div>
-          );
+        <Router>
+             <Navbar />
+            <Routes>
+              <Route exact path='/' element={<Home/>} />
+              <Route exact path='/launches' element={<Launches/>} />
+              <Route exact path='/rockets' element={<Rockets/>} />
+            </Routes>
+      </Router>
+    );
 }
  
 
