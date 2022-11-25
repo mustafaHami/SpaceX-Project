@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { fetchCapsules } from "../service/service";
+import CapsulesCard from "../components/CapsulesCard";
+import "../assets/styles/Capsules.css";
+
+
 
 const Capsules = () => {
   const [capsulesData, setCapsulesData] = useState([]);
@@ -13,11 +17,20 @@ const Capsules = () => {
     fetchCapsulesData();
   }, []);
   
+  const renderCapsulesCards = capsulesData.map((record) => {
+    return <CapsulesCard key={record.capsule_serial} data={record} />;
+  });
+
+
+
+
 
   return (
-    <div>
-        <p>Caps SCREEN</p>
-    </div>
+    <div className="m-5">
+          <div className="grid-capsules">
+            {renderCapsulesCards}
+          </div>
+        </div>
   );
 };
 

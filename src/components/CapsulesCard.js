@@ -1,36 +1,74 @@
 import React from "react";
 import "../assets/styles/CapsulesCard.css";
+import {formatDate, formatYear, formatMonth} from "../utils/DateFormat"
 
-function CapsulesCard() {
-    return(
-        <div>
-            <section className="dark">
-	            <div className="container py-4">
-                    <article className="postcard dark blue">
-                        <a className="postcard__img_link" href="#">
-                            <img className="postcard__img" src="" alt="Image Title" />
-                        </a>
-                        <div className="postcard__text">
-                            <h1 className="postcard__title blue"><a href="#">Capsule Title</a></h1>
-                            <div className="postcard__subtitle small">
-                                <time datetime="2020-05-25 12:00:00">
-                                    <i className="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-                                </time>
-                            </div>
-                            <div className="postcard__bar"></div>
-                            <div className="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
-                            <ul className="postcard__tagbox">
-                                <li className="tag__item"><i className="fas fa-tag mr-2"></i>Tag1</li>
-                                <li className="tag__item"><i className="fas fa-clock mr-2"></i>Tag2</li>
-                                <li className="tag__item play blue">
-                                    <a href="#"><i className="fas fa-play mr-2"></i>Tag3</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </article>
-	            </div>
-            </section>
+function CapsulesCard(props) {
+  const {
+    capsule_serial,
+    capsule_id,
+    status,
+    original_launch,
+    type,
+    details,
+    missions,
+    reuse_count
+
+  } = props.data;
+
+  function BadgeStatus(props) {
+    const status = props.status;
+    switch (status) {
+      case 'unknown' || 'null':
+        return <span className="badge bg-danger">{status}</span>
+      case 'active':
+        return <span className="badge bg-success">{status}</span>
+      case 'retired':
+        return <span className="badge bg-warning">{status}</span>
+      case 'destroyed':
+        return <span className="badge bg-info">{status}</span> 
+    }
+  }
+  
+
+  function getMissionsName() {
+    if(missions)
+        return missions.map(item => ' ' + item.name)
+}
+
+function getNumberFlight() {
+  if(missions)
+      return missions.map(item => ' ' + item.flight)
+}
+
+  return(
+    <div className="card">
+        <div className="card-header no-border">
+            <h5 className="card-title">{capsule_serial}</h5>
         </div>
-    );
+        <div className="card-body pt-0">
+            <div className="content">
+                <div className="content-wrapper">
+                    <div className="content-date">
+                        <span className="content-date-day">{formatDate(original_launch)}</span>
+                        <span className="content-date-month">{formatMonth(original_launch)}</span>
+                    </div>
+                    <div className="info">
+                        <span className="info-subtitle">{capsule_id} - <span className="content-date-year">{formatYear(original_launch)}</span></span>
+                        <span className="info-details">{details}</span>
+                    </div>
+                </div>
+                <div className="description">
+                    <div className="description-item"><span>🚀 &nbsp; Type: {type}</span></div>
+                    <div className="description-item"><span>🎯 &nbsp; Mission(s): {getMissionsName()}</span></div>
+                    <div className="description-item"><span> ✈️ &nbsp; Flight Number: {getNumberFlight()}</span></div>
+                    <div className="description-item mt-2"><span>Reused {reuse_count} times</span></div>
+                </div>
+                <div className="status">
+                  <BadgeStatus status={status}></BadgeStatus>
+                </div>
+            </div>
+        </div>
+    </div>
+  );
 };
 export default CapsulesCard;

@@ -1,36 +1,17 @@
 import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
-
+import "../assets/styles/Navbar.css";
 
 const Navbar = () => {
-  return (
-    <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
-      <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
-        <ul className="flex flex-col lg:flex-row list-none">
-        <li>
-            <NavLink
-            to="/"
-            >
-            Home
-            </NavLink>
-        </li>
-        <li>
-            <NavLink
-            to="/launches"
-            >
-            Launches
-            </NavLink>
-        </li>
-        <li>
-            <NavLink
-            to="/capsules"
-            >
-            Capsules
-            </NavLink>
-        </li>
-        </ul>
-      </div>
-    </nav>
+  return ( 
+    <div className="container-fluid mb-4">
+        <nav className="navbar navbar-inverse">
+            <ul className="nav navbar-nav">
+                <li className="hoverable"><NavLink to="/launches">Launches</NavLink></li>
+                <li className="hoverable"><NavLink to="/capsules">Capsules</NavLink></li>
+            </ul>
+        </nav>
+    </div>
   );
 };
 

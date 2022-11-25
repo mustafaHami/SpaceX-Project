@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import LaunchesCard from "../components/LaunchesCard";
-import {fetchLaunches } from "../service/service";
+import { fetchLaunches } from "../service/service";
 
 const Launches = () => {
   const [launchesData, setLaunchesData] = useState([]);
-  // when page load for the first time.
   useEffect(() => {
     const fetchLaunchesData = async () => {
       await fetchLaunches({ limit: 10, offset: 0 }).then((res) => {
