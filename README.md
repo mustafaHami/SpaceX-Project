@@ -7,7 +7,7 @@
   <p align="center">
     An awesome app to know everything about launches and capsules from spaceX !
     <br />
-    <a href="https://ypariset.fr">View Demo</a>
+    <a href="https://space-x-project-one.vercel.app/">View Demo</a>
   </p>
 </div>
 
