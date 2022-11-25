@@ -33,9 +33,9 @@ const Launches = () => {
   });
 
   return (
-    <div className="mt-2 flex flex-wrap h-screen overflow-y-auto overscroll-auto scrollable">
+    <div>
           {renderLaunchCards}
-        </div>
+    </div>
   );
 };
 

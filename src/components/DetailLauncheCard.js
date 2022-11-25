@@ -1,13 +1,15 @@
 import React from "react";
-import "../assets/styles/LaunchesCard.css";
+import "../assets/styles/DetailLaunchCard.css";
 import { Link } from 'react-router-dom';
-import { formatDate } from '../utils/DateFormat2';
+import { formatFullDate, formatDate } from '../utils/DateFormat2';
 import Badge from 'react-bootstrap/Badge';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Stack from 'react-bootstrap/Stack';
 
 
 function DetailLauncheCard(props) {
     const {
-        links: { mission_patch_small },
         flight_number,
         details,
         launch_date_unix,
@@ -17,11 +19,11 @@ function DetailLauncheCard(props) {
 
     return(
         <div>
-            <Link to={`/launches/${flight_number}`}>
             <section className="dark">
 	            <div className="container py-4">
+                    <h3> Flight Number : {flight_number}</h3>
                     <article className="postcard dark blue">
-                        <img className="postcard__img" src={mission_patch_small} alt="Image Title" />
+
                         <div className="postcard__text">
                             <h1 className="postcard__title blue">{mission_name}</h1>
                             <div className="postcard__subtitle small">
@@ -30,20 +32,33 @@ function DetailLauncheCard(props) {
                                 </time>
                             </div>
                             <div className="postcard__bar"></div>
-                            <div className="postcard__preview-txt">{details=== null ? "No details": details}</div>
-                            <ul className="postcard__tagbox">
-                            
-                                <h3>
-                                <Badge bg={launch_success ? 'success primary':'danger primary'} >
-                                    {launch_success ? 'Success':'Failed'}
-                                </Badge>  
-                                </h3>
-                            </ul>
+                            <Card className="text-center"> 
+                                <Card.Header>
+                                    <div className="">
+                                        <Badge pill bg='secondary' >
+                                            <span className="font-weight-bold">⏱ Launch on </span>{formatFullDate(launch_date_unix)}
+                                        </Badge> 
+                                    </div>
+                                    <div className=" ms-auto">
+                                        <Badge pill bg={launch_success ? 'success ':'danger '} >
+                                            {launch_success ? 'Success ':'Failed '}
+                                        </Badge> <p>  </p>
+                                    </div>
+                                 </Card.Header>
+                                <Card.Body>
+                                    <Card.Title> <h4>Detail {launch_success ? 'Success ':'Failure '}</h4>  </Card.Title>
+                                    <Card.Text>
+                                       <h6>{details}</h6>                                   
+                                    </Card.Text>
+                                </Card.Body>
+                                <Card.Footer className="text-muted">
+                                
+                                 </Card.Footer>
+                            </Card>
                         </div>
                     </article>
 	            </div>
             </section>
-            </Link>
         </div>
     );
 };

@@ -30,7 +30,7 @@ function LaunchesCard(props) {
                                 </time>
                             </div>
                             <div className="postcard__bar"></div>
-                            <div className="postcard__preview-txt">{details=== null ? "No details": details}</div>
+                            <div className="postcard__preview-txt"></div>
                             <ul className="postcard__tagbox">
                             
                                 <h3>
