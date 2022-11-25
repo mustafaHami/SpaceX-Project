@@ -5,7 +5,7 @@ import { formatDate } from '../utils/DateFormat2';
 import Badge from 'react-bootstrap/Badge';
 
 
-function LaunchesCard(props) {
+function DetailLauncheCard(props) {
     const {
         links: { mission_patch_small },
         flight_number,
@@ -47,4 +47,4 @@ function LaunchesCard(props) {
         </div>
     );
 };
-export default LaunchesCard;
+export default DetailLauncheCard;
