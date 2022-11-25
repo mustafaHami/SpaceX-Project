@@ -20,14 +20,8 @@ const fetchCapsule = (capsuleId) => {
 return fetch(`${baseAPI}/capsules/${capsuleId}`).then((res) => res.json());
 };
 
-const fetchLaunches = ({
-  launchYear = "",
-  rocketName = "",
-  launchSuccess = "",
-}) => {
-  return fetch(
-    `${baseAPI}/launches?launch_year=${launchYear}&rocket_name=${rocketName}&launch_success=${launchSuccess}`
-  ).then((res) => res.json());
+const fetchLaunches = () => {
+  return fetch(`${baseAPI}/launches?`).then((res) => res.json());
 };
 
 const fetchLaunch = (flightNumber) => {

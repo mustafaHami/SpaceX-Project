@@ -1,9 +1,8 @@
 import React from "react";
 import "../assets/styles/LaunchesCard.css";
 import { Link } from 'react-router-dom';
-import { formatDate } from '../utils/DateFormat2';
+import { formatDate } from '../utils/DateFormat';
 import Badge from 'react-bootstrap/Badge';
-
 
 function LaunchesCard(props) {
     const {
@@ -32,7 +31,6 @@ function LaunchesCard(props) {
                             <div className="postcard__bar"></div>
                             <div className="postcard__preview-txt"></div>
                             <ul className="postcard__tagbox">
-                            
                                 <h3>
                                 <Badge bg={launch_success ? 'success primary':'danger primary'} >
                                     {launch_success ? 'Success':'Failed'}

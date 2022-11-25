@@ -1,6 +1,6 @@
 import React from "react";
 import "../assets/styles/CapsulesCard.css";
-import {formatDate, formatYear, formatMonth} from "../utils/DateFormat"
+import {formatDateForCapsules, formatYearForCapsules, formatMonthForCapsules} from "../utils/DateFormat"
 
 function CapsulesCard(props) {
   const {
@@ -29,7 +29,6 @@ function CapsulesCard(props) {
     }
   }
   
-
   function getMissionsName() {
     if(missions)
         return missions.map(item => ' ' + item.name)
@@ -49,11 +48,11 @@ function getNumberFlight() {
             <div className="content">
                 <div className="content-wrapper">
                     <div className="content-date">
-                        <span className="content-date-day">{formatDate(original_launch)}</span>
-                        <span className="content-date-month">{formatMonth(original_launch)}</span>
+                        <span className="content-date-day">{formatDateForCapsules(original_launch)}</span>
+                        <span className="content-date-month">{formatMonthForCapsules(original_launch)}</span>
                     </div>
                     <div className="info">
-                        <span className="info-subtitle">{capsule_id} - <span className="content-date-year">{formatYear(original_launch)}</span></span>
+                        <span className="info-subtitle">{capsule_id} - <span className="content-date-year">{formatYearForCapsules(original_launch)}</span></span>
                         <span className="info-details">{details}</span>
                     </div>
                 </div>

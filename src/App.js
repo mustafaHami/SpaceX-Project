@@ -1,8 +1,4 @@
-
-import Button from "./components/Button";
-import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./views/Home";
 import Launches from "./views/Launches";
 import Capsules from "./views/Capsules";
 import Navbar from "./components/Navbar";

@@ -1,4 +1,3 @@
-import { computeStyles } from '@popperjs/core'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router';
 import { fetchLaunch } from '../service/service.js'
@@ -18,7 +17,6 @@ const DetailLaunche = (props) => {
       }, [id]);
 
     const renderLaunch = <DetailLauncheCard key={launchData.flight_number} data={launchData} />; 
-    console.log(launchData) 
     return !launchData ? ( 
     <div>
       Non trouvée

@@ -7,7 +7,6 @@ import "../assets/styles/Capsules.css";
 
 const Capsules = () => {
   const [capsulesData, setCapsulesData] = useState([]);
-  // when page load for the first time.
   useEffect(() => {
     const fetchCapsulesData = async () => {
       await fetchCapsules({ limit: 10, offset: 0 }).then((res) => {
