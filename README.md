@@ -7,10 +7,12 @@
   <p align="center">
     An awesome app to know everything about launches and capsules from spaceX !
     <br />
-    <a href="https://space-x-project-one.vercel.app/">View Demo</a>
+    <a href="https://space-x-project-rust.vercel.app/">View Demo</a>
+    <p>:white_check_mark: View all Launches</p>
+    <p>:white_check_mark: View all Capsules and these informations</p>
+    <p>:white_check_mark: By clicking on an element, You can view more information on Launches</p>
   </p>
 </div>
-
 
 
 ### Built With
@@ -22,6 +24,10 @@
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+
+Download every packages for run this project
 
 ### `npm start`
 
