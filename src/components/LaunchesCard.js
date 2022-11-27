@@ -15,10 +15,8 @@ function LaunchesCard(props) {
       } = props.data;
 
     return(
-        <div>
+        <div className="col-6">
             <Link to={`/launches/${flight_number}`}>
-            <section className="dark">
-	            <div className="container py-4">
                     <article className="postcard dark blue">
                         <img className="postcard__img" src={mission_patch_small} alt="Image Title" />
                         <div className="postcard__text">
@@ -39,10 +37,8 @@ function LaunchesCard(props) {
                             </ul>
                         </div>
                     </article>
-	            </div>
-            </section>
-            </Link>
-        </div>
+	        </Link>
+        </div>   
     );
 };
 export default LaunchesCard;

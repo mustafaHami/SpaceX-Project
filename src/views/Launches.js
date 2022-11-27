@@ -29,9 +29,14 @@ const Launches = () => {
   });
 
   return (
-    <div>
-          {renderLaunchCards}
-    </div>
+          <div className="container-fluid">
+            <section className="dark ">
+	            <div className="container row py-4 justify-content-center"> 
+                  {renderLaunchCards}
+              </div>
+            </section>
+        </div>
+          
   );
 };
 
